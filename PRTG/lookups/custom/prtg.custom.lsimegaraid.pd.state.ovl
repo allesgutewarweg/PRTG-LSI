@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+  <ValueLookup id="prtg.custom.lsimegaraid.pd.state" desiredValue="24" undefinedState="Warning">
+    <Lookups>
+      <SingleInt state="Warning" value="0">Unconfigured/Good</SingleInt>
+	  <SingleInt state="Error" value="1">Unconfigured/Bad</SingleInt>
+	  <SingleInt state="Ok" value="2">Hot Spare</SingleInt>
+	  <SingleInt state="Warning" value="16">Offline</SingleInt>
+	  <SingleInt state="Error" value="17">Failed</SingleInt>
+	  <SingleInt state="Warning" value="20">Rebuild</SingleInt>
+	  <SingleInt state="Ok" value="24">Online</SingleInt>
+	  <SingleInt state="Warning" value="32">Copyback</SingleInt>
+	  <SingleInt state="Ok" value="64">System</SingleInt>
+	  <SingleInt state="Warning" value="128">Unconfigured/Shielded</SingleInt>
+	  <SingleInt state="Ok" value="128">Hot Spare/Shielded</SingleInt>
+	  <SingleInt state="Ok" value="128">Configured/Shielded</SingleInt>
+    </Lookups>
+  </ValueLookup>

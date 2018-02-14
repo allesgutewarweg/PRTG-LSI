@@ -1,0 +1,628 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<devicetemplate id="custom" name="Custom LSI RAID Drives v0.2" priority="1">
+	<check id="ping" meta="ping"/>
+	<check id="snmp" meta="snmp" requires="ping"/>
+	<check id="snmp_physicalDriveTable" meta="snmpnext" requires="snmp">
+		<metadata>
+			<oid>1.3.6.1.4.1.3582.4.1.4.2.1.2</oid>
+		</metadata>
+	</check>
+	<create id="_snmp_physicalDriveTable" kind="snmpcustomtable" meta="snmptable" requires="snmp_physicalDriveTable" displayname="LSI Physical Drive: XXX">
+		<metadata>
+			<tableoid>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.2.1.2</cell>
+				<cell col="1">physicalDriveTable</cell>
+			</tableoid>
+			<identcolumn>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.2.1.2.1.37</cell>
+				<cell col="1">pdSerialNumber</cell>
+			</identcolumn>
+		</metadata>
+		<createdata>
+			<tags>snmpcustomsensor snmpcustomtable lsi drivephysical</tags>
+			<priority>3</priority>
+			<comments/>
+			<primarychannel>2</primarychannel>
+			<position>10</position>
+			<inherittriggers>
+				<flags>
+					<inherited/>
+				</flags>
+				<cell>1</cell>
+			</inherittriggers>
+			<stack>0</stack>
+			<usesingleget/>
+			<nametemplate>LSI Physical Drive: [rowidentifier]</nametemplate>
+			<identcolumn>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.2.1.2.1.37</cell>
+				<cell col="1">pdSerialNumber</cell>
+			</identcolumn>
+			<tableoid>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.2.1.2</cell>
+				<cell col="1">physicalDriveTable</cell>
+			</tableoid>
+			<channel1column>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.2.1.2.1.10</cell>
+				<cell col="1">pdState</cell>
+			</channel1column>
+			<channel2column>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.2.1.2.1.7</cell>
+				<cell col="1">mediaErrCount</cell>
+			</channel2column>
+			<channel3column>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.2.1.2.1.8</cell>
+				<cell col="1">otherErrCount</cell>
+			</channel3column>
+			<channel4column>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.2.1.2.1.9</cell>
+				<cell col="1">predFailCount</cell>
+			</channel4column>
+			<channel5column>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.2.1.2.1.36</cell>
+				<cell col="1">pdTemperature</cell>
+			</channel5column>
+			<channel6column/>
+			<channel7column/>
+			<channel8column/>
+			<channel9column/>
+			<channel10column/>
+			<channel1name>State</channel1name>
+			<channel1snmptype>abs</channel1snmptype>
+			<channel1unit>ValueLookup</channel1unit>
+			<channel1customunit/>
+			<channel1valuelookup>
+				<cell col="0">prtg.custom.lsimegaraid.pd.state</cell>
+				<cell col="1">prtg.custom.lsimegaraid.pd.state</cell>
+			</channel1valuelookup>
+			<usechannel2>1</usechannel2>
+			<channel2name>Error Count (Media)</channel2name>
+			<channel2snmptype>abs</channel2snmptype>
+			<channel2unit>Count</channel2unit>
+			<channel2customunit/>
+			<channel2valuelookup>
+				<cell col="1">None</cell>
+			</channel2valuelookup>
+			<usechannel3>1</usechannel3>
+			<channel3name>Error Count (Other)</channel3name>
+			<channel3snmptype>abs</channel3snmptype>
+			<channel3unit>Count</channel3unit>
+			<channel3customunit/>
+			<channel3valuelookup>
+				<cell col="1">None</cell>
+			</channel3valuelookup>
+			<usechannel4>1</usechannel4>
+			<channel4name>Predictive Fail Count</channel4name>
+			<channel4snmptype>abs</channel4snmptype>
+			<channel4unit>Count</channel4unit>
+			<channel4customunit/>
+			<channel4valuelookup>
+				<cell col="1">None</cell>
+			</channel4valuelookup>
+			<usechannel5>1</usechannel5>
+			<channel5name>Temperature</channel5name>
+			<channel5snmptype>abs</channel5snmptype>
+			<channel5unit>Custom</channel5unit>
+			<channel5customunit>ºC</channel5customunit>
+			<channel5valuelookup>
+				<cell col="1">None</cell>
+			</channel5valuelookup>
+			<usechannel6>0</usechannel6>
+			<channel6name/>
+			<channel6snmptype>abs</channel6snmptype>
+			<channel6unit>Count</channel6unit>
+			<channel6customunit/>
+			<channel6valuelookup>
+				<cell col="1">None</cell>
+			</channel6valuelookup>
+			<usechannel7>0</usechannel7>
+			<channel7name/>
+			<channel7snmptype>abs</channel7snmptype>
+			<channel7unit>Count</channel7unit>
+			<channel7customunit/>
+			<channel7valuelookup>
+				<cell col="1">None</cell>
+			</channel7valuelookup>
+			<usechannel8>0</usechannel8>
+			<channel8name/>
+			<channel8snmptype>abs</channel8snmptype>
+			<channel8unit>Count</channel8unit>
+			<channel8customunit/>
+			<channel8valuelookup>
+				<cell col="1">None</cell>
+			</channel8valuelookup>
+			<usechannel9>0</usechannel9>
+			<channel9name/>
+			<channel9snmptype>abs</channel9snmptype>
+			<channel9unit>Count</channel9unit>
+			<channel9customunit/>
+			<channel9valuelookup>
+				<cell col="1">None</cell>
+			</channel9valuelookup>
+			<usechannel10>0</usechannel10>
+			<channel10name/>
+			<channel10snmptype>abs</channel10snmptype>
+			<channel10unit>Count</channel10unit>
+			<channel10customunit/>
+			<channel10valuelookup>
+				<cell col="1">None</cell>
+			</channel10valuelookup>
+		</createdata>
+		<channeldata primary="2" modulo="0" fix="-1" sum="-1" v="1">
+			<downchannel id="-4">
+				<data>
+					<axismode>0</axismode>
+					<colmode>0</colmode>
+					<decimaldigits>2</decimaldigits>
+					<decimalmode>0</decimalmode>
+					<kind>Percent</kind>
+					<limitmode>0</limitmode>
+					<linewidth>1</linewidth>
+					<mode>Absolute</mode>
+					<name>Downtime</name>
+					<namereadonly>0</namereadonly>
+					<nostack>0</nostack>
+					<percent>0</percent>
+					<show>1</show>
+					<showchart>1</showchart>
+					<speedsize>None</speedsize>
+					<speedtime>None</speedtime>
+					<spikemode>0</spikemode>
+					<volumesize>None</volumesize>
+				</data>
+			</downchannel>
+			<list>
+				<channel id="2">
+					<data>
+						<avgmode>0</avgmode>
+						<axismode>0</axismode>
+						<colmode>0</colmode>
+						<decimaldigits>2</decimaldigits>
+						<decimalmode>0</decimalmode>
+						<desiredlookupvalue>24</desiredlookupvalue>
+						<id>2</id>
+						<kind>Custom</kind>
+						<limitmode>0</limitmode>
+						<linewidth>1</linewidth>
+						<lookupcrc>480703957</lookupcrc>
+						<mode>Absolute</mode>
+						<name>State</name>
+						<namereadonly>1</namereadonly>
+						<nostack>0</nostack>
+						<percent>0</percent>
+						<show>1</show>
+						<showchart>1</showchart>
+						<speedsize>None</speedsize>
+						<speedtime>None</speedtime>
+						<spikemode>0</spikemode>
+						<valuelookup>prtg.custom.lsimegaraid.pd.state</valuelookup>
+						<volumesize>None</volumesize>
+					</data>
+				</channel>
+				<channel id="3">
+					<data>
+						<avgmode>0</avgmode>
+						<axismax>
+							<cell col="1">1</cell>
+						</axismax>
+						<axismin>
+							<cell col="1">1</cell>
+						</axismin>
+						<axismode>0</axismode>
+						<colmode>0</colmode>
+						<decimaldigits>2</decimaldigits>
+						<decimalmode>0</decimalmode>
+						<id>3</id>
+						<kind>Count</kind>
+						<limitmaxerror>
+							<cell col="0">5</cell>
+							<cell col="1">1</cell>
+						</limitmaxerror>
+						<limitmaxwarning>
+							<cell col="0">1</cell>
+							<cell col="1">1</cell>
+						</limitmaxwarning>
+						<limitminerror>
+							<cell col="1">1</cell>
+						</limitminerror>
+						<limitminwarning>
+							<cell col="1">1</cell>
+						</limitminwarning>
+						<limitmode>1</limitmode>
+						<linewidth>1</linewidth>
+						<mode>Absolute</mode>
+						<name>Error Count (Media)</name>
+						<namereadonly>1</namereadonly>
+						<nostack>0</nostack>
+						<percent>0</percent>
+						<ref100percent>
+							<cell col="1">1</cell>
+						</ref100percent>
+						<show>1</show>
+						<showchart>1</showchart>
+						<speedsize>None</speedsize>
+						<speedtime>None</speedtime>
+						<spikemax>
+							<cell col="1">1</cell>
+						</spikemax>
+						<spikemin>
+							<cell col="1">1</cell>
+						</spikemin>
+						<spikemode>0</spikemode>
+						<volumesize>None</volumesize>
+					</data>
+				</channel>
+				<channel id="4">
+					<data>
+						<avgmode>0</avgmode>
+						<axismax>
+							<cell col="1">1</cell>
+						</axismax>
+						<axismin>
+							<cell col="1">1</cell>
+						</axismin>
+						<axismode>0</axismode>
+						<colmode>0</colmode>
+						<decimaldigits>2</decimaldigits>
+						<decimalmode>0</decimalmode>
+						<id>4</id>
+						<kind>Count</kind>
+						<limitmaxerror>
+							<cell col="0">5</cell>
+						</limitmaxerror>
+						<limitmaxwarning>
+							<cell col="0">1</cell>
+						</limitmaxwarning>
+						<limitminerror>
+							<cell col="1">1</cell>
+						</limitminerror>
+						<limitminwarning>
+							<cell col="1">1</cell>
+						</limitminwarning>
+						<limitmode>1</limitmode>
+						<linewidth>1</linewidth>
+						<mode>Absolute</mode>
+						<name>Error Count (Other)</name>
+						<namereadonly>1</namereadonly>
+						<nostack>0</nostack>
+						<percent>0</percent>
+						<ref100percent>
+							<cell col="1">1</cell>
+						</ref100percent>
+						<show>1</show>
+						<showchart>1</showchart>
+						<speedsize>None</speedsize>
+						<speedtime>None</speedtime>
+						<spikemax>
+							<cell col="1">1</cell>
+						</spikemax>
+						<spikemin>
+							<cell col="1">1</cell>
+						</spikemin>
+						<spikemode>0</spikemode>
+						<volumesize>None</volumesize>
+					</data>
+				</channel>
+				<channel id="5">
+					<data>
+						<avgmode>0</avgmode>
+						<axismax>
+							<cell col="1">1</cell>
+						</axismax>
+						<axismin>
+							<cell col="1">1</cell>
+						</axismin>
+						<axismode>0</axismode>
+						<colmode>0</colmode>
+						<decimaldigits>2</decimaldigits>
+						<decimalmode>0</decimalmode>
+						<id>5</id>
+						<kind>Count</kind>
+						<limitmaxerror>
+							<cell col="0">5</cell>
+						</limitmaxerror>
+						<limitmaxwarning>
+							<cell col="0">1</cell>
+						</limitmaxwarning>
+						<limitminerror>
+							<cell col="1">1</cell>
+						</limitminerror>
+						<limitminwarning>
+							<cell col="1">1</cell>
+						</limitminwarning>
+						<limitmode>1</limitmode>
+						<linewidth>1</linewidth>
+						<mode>Absolute</mode>
+						<name>Predictive Fail Count</name>
+						<namereadonly>1</namereadonly>
+						<nostack>0</nostack>
+						<percent>0</percent>
+						<ref100percent>
+							<cell col="1">1</cell>
+						</ref100percent>
+						<show>1</show>
+						<showchart>1</showchart>
+						<speedsize>None</speedsize>
+						<speedtime>None</speedtime>
+						<spikemax>
+							<cell col="1">1</cell>
+						</spikemax>
+						<spikemin>
+							<cell col="1">1</cell>
+						</spikemin>
+						<spikemode>0</spikemode>
+						<volumesize>None</volumesize>
+					</data>
+				</channel>
+				<channel id="6">
+					<data>
+						<avgmode>0</avgmode>
+						<axismode>0</axismode>
+						<colmode>0</colmode>
+						<customunit>ºC</customunit>
+						<decimaldigits>2</decimaldigits>
+						<decimalmode>0</decimalmode>
+						<id>6</id>
+						<kind>Custom</kind>
+						<limitmode>0</limitmode>
+						<linewidth>1</linewidth>
+						<mode>Absolute</mode>
+						<name>Temperature</name>
+						<namereadonly>1</namereadonly>
+						<nostack>0</nostack>
+						<percent>0</percent>
+						<show>1</show>
+						<showchart>1</showchart>
+						<speedsize>None</speedsize>
+						<speedtime>None</speedtime>
+						<spikemode>0</spikemode>
+						<volumesize>None</volumesize>
+					</data>
+				</channel>
+			</list>
+		</channeldata>
+		<triggerdata/>
+	</create>
+	<check id="snmp_virtualDriveTable" meta="snmpnext" requires="snmp">
+		<metadata>
+			<oid>1.3.6.1.4.1.3582.4.1.4.3.1.2</oid>
+		</metadata>
+	</check>
+	<create id="_snmp_virtualDriveTable" kind="snmpcustomtable" meta="snmptable" requires="snmp_virtualDriveTable" displayname="LSI Virtual Drive: X (Y)">
+		<metadata>
+			<tableoid>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.3.1.2</cell>
+				<cell col="1">virtualDriveTable</cell>
+			</tableoid>
+			<identcolumn>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.3.1.2.1.1</cell>
+				<cell col="1">virtualDevID</cell>
+			</identcolumn>
+		</metadata>
+		<createdata>
+			<tags>snmpcustomsensor snmpcustomtable lsi drivevirtual</tags>
+			<priority>3</priority>
+			<comments/>
+			<primarychannel>2</primarychannel>
+			<position>20</position>
+			<inherittriggers>
+				<flags>
+					<inherited/>
+				</flags>
+				<cell>1</cell>
+			</inherittriggers>
+			<stack>0</stack>
+			<usesingleget/>
+			<nametemplate>LSI Virtual Drive: [rowidentifier] ([1.3.6.1.4.1.3582.4.1.4.3.1.2.1.6])</nametemplate>
+			<identcolumn>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.3.1.2.1.1</cell>
+				<cell col="1">virtualDevID</cell>
+			</identcolumn>
+			<tableoid>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.3.1.2</cell>
+				<cell col="1">virtualDriveTable</cell>
+			</tableoid>
+			<channel1column>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.3.1.2.1.5</cell>
+				<cell col="1">state</cell>
+			</channel1column>
+			<channel2column>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.3.1.2.1.23</cell>
+				<cell col="1">badBlocksExist</cell>
+			</channel2column>
+			<channel3column>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.3.1.2.1.1</cell>
+				<cell col="1">virtualDevID</cell>
+			</channel3column>
+			<channel4column>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.3.1.2.1.1</cell>
+				<cell col="1">virtualDevID</cell>
+			</channel4column>
+			<channel5column>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.3.1.2.1.1</cell>
+				<cell col="1">virtualDevID</cell>
+			</channel5column>
+			<channel6column>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.3.1.2.1.1</cell>
+				<cell col="1">virtualDevID</cell>
+			</channel6column>
+			<channel7column>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.3.1.2.1.1</cell>
+				<cell col="1">virtualDevID</cell>
+			</channel7column>
+			<channel8column>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.3.1.2.1.1</cell>
+				<cell col="1">virtualDevID</cell>
+			</channel8column>
+			<channel9column>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.3.1.2.1.1</cell>
+				<cell col="1">virtualDevID</cell>
+			</channel9column>
+			<channel10column>
+				<cell col="0">1.3.6.1.4.1.3582.4.1.4.3.1.2.1.1</cell>
+				<cell col="1">virtualDevID</cell>
+			</channel10column>
+			<channel1name>State</channel1name>
+			<channel1snmptype>abs</channel1snmptype>
+			<channel1unit>ValueLookup</channel1unit>
+			<channel1customunit/>
+			<channel1valuelookup>
+				<cell col="0">prtg.custom.lsimegaraid.vd.state</cell>
+				<cell col="1">prtg.custom.lsimegaraid.vd.state</cell>
+			</channel1valuelookup>
+			<usechannel2>1</usechannel2>
+			<channel2name>Bad Blocks</channel2name>
+			<channel2snmptype>abs</channel2snmptype>
+			<channel2unit>ValueLookup</channel2unit>
+			<channel2customunit/>
+			<channel2valuelookup>
+				<cell col="0">prtg.custom.lsimegaraid.vd.badblockpresent</cell>
+				<cell col="1">prtg.custom.lsimegaraid.vd.badblockpresent</cell>
+			</channel2valuelookup>
+			<usechannel3>0</usechannel3>
+			<channel3name/>
+			<channel3snmptype>abs</channel3snmptype>
+			<channel3unit>Count</channel3unit>
+			<channel3customunit/>
+			<channel3valuelookup>
+				<cell col="1">None</cell>
+			</channel3valuelookup>
+			<usechannel4>0</usechannel4>
+			<channel4name/>
+			<channel4snmptype>abs</channel4snmptype>
+			<channel4unit>Count</channel4unit>
+			<channel4customunit/>
+			<channel4valuelookup>
+				<cell col="1">None</cell>
+			</channel4valuelookup>
+			<usechannel5>0</usechannel5>
+			<channel5name/>
+			<channel5snmptype>abs</channel5snmptype>
+			<channel5unit>Count</channel5unit>
+			<channel5customunit/>
+			<channel5valuelookup>
+				<cell col="1">None</cell>
+			</channel5valuelookup>
+			<usechannel6>0</usechannel6>
+			<channel6name/>
+			<channel6snmptype>abs</channel6snmptype>
+			<channel6unit>Count</channel6unit>
+			<channel6customunit/>
+			<channel6valuelookup>
+				<cell col="1">None</cell>
+			</channel6valuelookup>
+			<usechannel7>0</usechannel7>
+			<channel7name/>
+			<channel7snmptype>abs</channel7snmptype>
+			<channel7unit>Count</channel7unit>
+			<channel7customunit/>
+			<channel7valuelookup>
+				<cell col="1">None</cell>
+			</channel7valuelookup>
+			<usechannel8>0</usechannel8>
+			<channel8name/>
+			<channel8snmptype>abs</channel8snmptype>
+			<channel8unit>Count</channel8unit>
+			<channel8customunit/>
+			<channel8valuelookup>
+				<cell col="1">None</cell>
+			</channel8valuelookup>
+			<usechannel9>0</usechannel9>
+			<channel9name/>
+			<channel9snmptype>abs</channel9snmptype>
+			<channel9unit>Count</channel9unit>
+			<channel9customunit/>
+			<channel9valuelookup>
+				<cell col="1">None</cell>
+			</channel9valuelookup>
+			<usechannel10>0</usechannel10>
+			<channel10name/>
+			<channel10snmptype>abs</channel10snmptype>
+			<channel10unit>Count</channel10unit>
+			<channel10customunit/>
+			<channel10valuelookup>
+				<cell col="1">None</cell>
+			</channel10valuelookup>
+		</createdata>
+		<channeldata primary="2" modulo="0" fix="-1" sum="-1" v="1">
+			<downchannel id="-4">
+				<data>
+					<axismode>0</axismode>
+					<colmode>0</colmode>
+					<decimaldigits>2</decimaldigits>
+					<decimalmode>0</decimalmode>
+					<kind>Percent</kind>
+					<limitmode>0</limitmode>
+					<linewidth>1</linewidth>
+					<mode>Absolute</mode>
+					<name>Downtime</name>
+					<namereadonly>0</namereadonly>
+					<nostack>0</nostack>
+					<percent>0</percent>
+					<show>1</show>
+					<showchart>1</showchart>
+					<speedsize>None</speedsize>
+					<speedtime>None</speedtime>
+					<spikemode>0</spikemode>
+					<volumesize>None</volumesize>
+				</data>
+			</downchannel>
+			<list>
+				<channel id="2">
+					<data>
+						<avgmode>0</avgmode>
+						<axismode>0</axismode>
+						<colmode>0</colmode>
+						<decimaldigits>2</decimaldigits>
+						<decimalmode>0</decimalmode>
+						<desiredlookupvalue>3</desiredlookupvalue>
+						<id>2</id>
+						<kind>Custom</kind>
+						<limitmode>0</limitmode>
+						<linewidth>1</linewidth>
+						<lookupcrc>3797920826</lookupcrc>
+						<mode>Absolute</mode>
+						<name>State</name>
+						<namereadonly>1</namereadonly>
+						<nostack>0</nostack>
+						<percent>0</percent>
+						<show>1</show>
+						<showchart>1</showchart>
+						<speedsize>None</speedsize>
+						<speedtime>None</speedtime>
+						<spikemode>0</spikemode>
+						<valuelookup>prtg.custom.lsimegaraid.vd.state</valuelookup>
+						<volumesize>None</volumesize>
+					</data>
+				</channel>
+				<channel id="3">
+					<data>
+						<avgmode>0</avgmode>
+						<axismode>0</axismode>
+						<colmode>0</colmode>
+						<decimaldigits>2</decimaldigits>
+						<decimalmode>0</decimalmode>
+						<desiredlookupvalue>0</desiredlookupvalue>
+						<id>3</id>
+						<kind>Custom</kind>
+						<limitmode>0</limitmode>
+						<linewidth>1</linewidth>
+						<lookupcrc>3389951438</lookupcrc>
+						<mode>Absolute</mode>
+						<name>Bad Blocks</name>
+						<namereadonly>1</namereadonly>
+						<nostack>0</nostack>
+						<percent>0</percent>
+						<show>1</show>
+						<showchart>1</showchart>
+						<speedsize>None</speedsize>
+						<speedtime>None</speedtime>
+						<spikemode>0</spikemode>
+						<valuelookup>prtg.custom.lsimegaraid.vd.badblockpresent</valuelookup>
+						<volumesize>None</volumesize>
+					</data>
+				</channel>
+			</list>
+		</channeldata>
+		<triggerdata/>
+	</create>
+</devicetemplate>
