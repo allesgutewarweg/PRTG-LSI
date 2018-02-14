@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-  <ValueLookup id="prtg.custom.lsimegaraid.vd.state" desiredValue="3" undefinedState="Warning">
+  <ValueLookup id="prtg.customlookups.lsimegaraid.vd.state" desiredValue="3" undefinedState="Warning">
     <Lookups>
       <SingleInt state="Warning" value="4">Off-line</SingleInt>
 	  <SingleInt state="Warning" value="1">Partially Degraded</SingleInt>

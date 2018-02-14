@@ -71,8 +71,8 @@
 			<channel1unit>ValueLookup</channel1unit>
 			<channel1customunit/>
 			<channel1valuelookup>
-				<cell col="0">prtg.custom.lsimegaraid.pd.state</cell>
-				<cell col="1">prtg.custom.lsimegaraid.pd.state</cell>
+				<cell col="0">prtg.customlookups.lsimegaraid.pd.state</cell>
+				<cell col="1">prtg.customlookups.lsimegaraid.pd.state</cell>
 			</channel1valuelookup>
 			<usechannel2>1</usechannel2>
 			<channel2name>Error Count (Media)</channel2name>
@@ -194,7 +194,7 @@
 						<speedsize>None</speedsize>
 						<speedtime>None</speedtime>
 						<spikemode>0</spikemode>
-						<valuelookup>prtg.custom.lsimegaraid.pd.state</valuelookup>
+						<valuelookup>prtg.customlookups.lsimegaraid.pd.state</valuelookup>
 						<volumesize>None</volumesize>
 					</data>
 				</channel>
@@ -466,8 +466,8 @@
 			<channel1unit>ValueLookup</channel1unit>
 			<channel1customunit/>
 			<channel1valuelookup>
-				<cell col="0">prtg.custom.lsimegaraid.vd.state</cell>
-				<cell col="1">prtg.custom.lsimegaraid.vd.state</cell>
+				<cell col="0">prtg.customlookups.lsimegaraid.vd.state</cell>
+				<cell col="1">prtg.customlookups.lsimegaraid.vd.state</cell>
 			</channel1valuelookup>
 			<usechannel2>1</usechannel2>
 			<channel2name>Bad Blocks</channel2name>
@@ -475,8 +475,8 @@
 			<channel2unit>ValueLookup</channel2unit>
 			<channel2customunit/>
 			<channel2valuelookup>
-				<cell col="0">prtg.custom.lsimegaraid.vd.badblockpresent</cell>
-				<cell col="1">prtg.custom.lsimegaraid.vd.badblockpresent</cell>
+				<cell col="0">prtg.customlookups.lsimegaraid.vd.badblockpresent</cell>
+				<cell col="1">prtg.customlookups.lsimegaraid.vd.badblockpresent</cell>
 			</channel2valuelookup>
 			<usechannel3>0</usechannel3>
 			<channel3name/>
@@ -590,7 +590,7 @@
 						<speedsize>None</speedsize>
 						<speedtime>None</speedtime>
 						<spikemode>0</spikemode>
-						<valuelookup>prtg.custom.lsimegaraid.vd.state</valuelookup>
+						<valuelookup>prtg.customlookups.lsimegaraid.vd.state</valuelookup>
 						<volumesize>None</volumesize>
 					</data>
 				</channel>
@@ -617,7 +617,7 @@
 						<speedsize>None</speedsize>
 						<speedtime>None</speedtime>
 						<spikemode>0</spikemode>
-						<valuelookup>prtg.custom.lsimegaraid.vd.badblockpresent</valuelookup>
+						<valuelookup>prtg.customlookups.lsimegaraid.vd.badblockpresent</valuelookup>
 						<volumesize>None</volumesize>
 					</data>
 				</channel>
